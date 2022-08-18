@@ -1,0 +1,61 @@
+default:
+  learning_rate: 0.0001
+  batchsize: 16
+  val_years:
+  - 2016
+  test_years:
+  - 2017
+  - 2018
+  - 2019
+  transform_name: MinMaxScaler
+  optimizer_name: Adam
+  weight_decay: 0
+  loss_function_name: "MSE"
+  max_epochs: 30
+  meta_prefix: "/media/harunkivril/HDD/MsThesis"
+  era5_daily_prefix: "/media/harunkivril/HDD/MsThesis/ERA5_daily"
+  gefs_daily_prefix: "/media/harunkivril/HDD/MsThesis/GEFS_daily"
+  test_prediction_prefix: "/media/harunkivril/HDD/MsThesis/test_predictions"
+  csv_save_path: "/media/harunkivril/HDD/MsThesis/csv_data"
+  dataloader_workers: 12
+  log_every_n_steps: 5
+  early_stop_patience: 5
+  early_stop_delta: 0
+
+fc_model:
+  fc_outs: [1024]
+  dropout: 0.1
+  use_batchnorm: True
+
+conv_model:
+  conv_dim: 3
+  kernel_size: 2
+  stride: 1
+  pad: 0
+  channel_outs: [256, 256, 256]
+  fc_outs: [512]
+  dropout: 0.1
+  use_ndbatchnorm: True
+  use_batchnorm: True
+  pooling_func_name: AvgPool
+
+fully_conv_model:
+  conv_dim: 2
+  channel_outs: [256, 256, 256, 256]
+  dropout: 0
+  use_ndbatchnorm: True
+  pooling_func_name: AvgPool
+
+fully_conv_res_model:
+  conv_dim: 2
+  channel_outs: [256, 256, 256, 256]
+  dropout: 0
+  use_ndbatchnorm: True
+  pooling_func_name: MaxPool
+
+ushaped_model:
+  conv_dim: 2
+  channel_outs: [512, 512, 512, 512, 512, 512, 512, 512]
+  dropout: 0
+  use_ndbatchnorm: False
+  pooling_func_name: AvgPool
