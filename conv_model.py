@@ -104,6 +104,7 @@ class FullyConvModel(ModelBase):
         optimizer_name,
         learning_rate,
         weight_decay,
+        use_ndbatchnorm,
         test_prediction_prefix,
         test_start_year,
         loss_function_name,
@@ -138,7 +139,7 @@ class FullyConvModel(ModelBase):
                 stride=1,
                 padding=1,
                 pool_type=pooling_func_name,
-                batch_norm=True,
+                batch_norm=use_ndbatchnorm,
                 dropout=dropout,
             )
             self.conv_blocks.append(block)
@@ -166,6 +167,7 @@ class FullyConvResModel(ModelBase):
         optimizer_name,
         learning_rate,
         weight_decay,
+        use_ndbatchnorm,
         test_prediction_prefix,
         test_start_year,
         loss_function_name,
@@ -202,7 +204,7 @@ class FullyConvResModel(ModelBase):
                 stride=1,
                 padding=1,
                 pool_type=pooling_func_name,
-                batch_norm=True,
+                batch_norm=use_ndbatchnorm,
                 dropout=dropout,
             )
             self.conv_blocks.append(block)
@@ -214,7 +216,7 @@ class FullyConvResModel(ModelBase):
             stride=1,
             padding=1,
             pool_type=pooling_func_name,
-            batch_norm=True,
+            batch_norm=use_ndbatchnorm,
             dropout=dropout,
         )
 
@@ -242,6 +244,7 @@ class UShapedModel(ModelBase):
         optimizer_name,
         learning_rate,
         weight_decay,
+        use_ndbatchnorm,
         test_prediction_prefix,
         test_start_year,
         loss_function_name,
@@ -279,7 +282,7 @@ class UShapedModel(ModelBase):
                 stride=1,
                 padding=1,
                 pool_type=pooling_func_name,
-                batch_norm=True,
+                batch_norm=use_ndbatchnorm,
                 dropout=dropout,
             )
             self.conv_blocks.append(block)

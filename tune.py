@@ -13,8 +13,8 @@ from utils import PostProcessPLDataset, create_search_space, return_model, retur
 MODEL_NAME = "fully_conv_model"
 SAVE_NAME = "fully_conv_model4"
 MAX_TIME = 2*24*60*60 # 2 Day
-SAMPLER = TPESampler(seed=3136)
-#SAMPLER = RandomSampler(seed=3136)
+#SAMPLER = TPESampler(seed=3136)
+SAMPLER = RandomSampler(seed=3136)
 
 AVAIL_GPUS = min(1, torch.cuda.device_count())
 CONFIG_PATH = "/home/harunkivril/Workspace/BogaziciMS/MsThesis/NeuralPostProcess/hyperparams.yml"
